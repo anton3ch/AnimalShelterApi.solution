@@ -1,5 +1,8 @@
 using AnimalShelterAPI.Models;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,9 +16,23 @@ builder.Services.AddDbContext<AnimalShelterAPIContext>(
                     )
                     )
                 );
+builder.Services.AddApiVersioning(opt =>
+                                    {
+                                        opt.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(2,0);
+                                        opt.AssumeDefaultVersionWhenUnspecified = true;
+                                        opt.ReportApiVersions = true;
+                                        
+                                    });
 
+                                    
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    // c.SwaggerDoc("v1", new OpenApiInfo { Title = "FirstVersion", Version "v1"});
+        c.ResolveConflictingActions(c => c.Last());
+}
+);
+
 
 var app = builder.Build();
 
