@@ -28,7 +28,6 @@ builder.Services.AddApiVersioning(opt =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    // c.SwaggerDoc("v1", new OpenApiInfo { Title = "FirstVersion", Version "v1"});
         c.ResolveConflictingActions(c => c.Last());
 }
 );
