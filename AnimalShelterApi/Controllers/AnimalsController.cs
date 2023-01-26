@@ -18,6 +18,7 @@ namespace AnimalShelterAPI.Controllers
     {
       _db = db;
     }
+    [ApiVersion("2.0")]
     [ApiVersion("1.0")]
     [HttpGet]
     public async Task<List<Animal>> Get(string breed, string name, int minimumAge)
@@ -40,6 +41,7 @@ namespace AnimalShelterAPI.Controllers
       }
       return await query.ToListAsync();
     }
+    [ApiVersion("2.0")]
     [ApiVersion("1.0")]
     [HttpGet("{id}")]
     public async Task<ActionResult<Animal>> GetAnimal(int id)
@@ -53,6 +55,7 @@ namespace AnimalShelterAPI.Controllers
 
       return animal;
     }
+    [ApiVersion("2.0")]
     [ApiVersion("1.0")]
     [HttpPost]
     public async Task<ActionResult<Animal>> Post(Animal animal)
