@@ -14,7 +14,7 @@
 
 ## Description
 
-Animal Shelter lets users create an API.
+Animal Shelter API lets users employ the API to manipulate/query the database and use the endpoints to implement the functionality in their own projects.
 
 ## Setup/Installation Requirements
 
@@ -70,13 +70,43 @@ Animal Shelter lets users create an API.
 
 ## Endpoints
 
-| Endpoints                          | Returns                        |
-| ---------------------------------- | ------------------------------ |
+| Endpoints                           | Returns                        |
+| ----------------------------------- | ------------------------------ |
 | api/v{version}/animals              | All animals                    |
 | api/v{version}/animals/1            | An animal with id = 1          |
 | api/v{version}/animals?breed=sphinx | Animals filtered by breed      |
 | api/v{version}/animals?name=zoe     | Animals filtered by name       |
 | api/v{version}/animals?minimumAge=5 | Animals filtered by age        |
+The {version} value in the endpoints should be replaced with the api version number.
+
+### POST Requests
+
+To make a POST request to `https://localhost:5001/api/v2/Animals`, an API call body is required. Example in JSON:
+```
+{
+  "name" = "Lucy",
+  "breed" = "Sphinx",
+  "age" = 4
+}
+```
+
+### PUT Requests
+To make a PUT request to `https://localhost:5001/api/v2/Animals/{id}`, an API call body and animal id are required. Example in JSON:
+```
+{
+  "AnimalId" = 7,
+  "name" = "Lucy Smith",
+  "breed" = "Sphinx",
+  "age" = 5
+}
+```
+
+### DELETE Requests
+
+To make a DELETE request to `https://localhost:5001/api/v2/Animals/{id}`, an animal id is required. Example:
+
+![Image of DELETE request in POSTMAN](./AnimalShelterApi/wwwroot/images/delete.png)
+
 
 ## Versioning
 
@@ -114,7 +144,16 @@ Animal Shelter lets users create an API.
   ...
   </pre>
 
-  ## Known Bugs
+### Queries
+To query the API http://localhost:5001/api/v2/animals?{parameter}={value}
+
+| Parameter|  Type  |        Description        | 
+|----------|--------|---------------------------|
+|   breed  | string | Animals filtered by breed |
+|   name   | string | Animals filtered by name  |
+|minimumAge|  int   | Animals filtered by age   |
+
+## Known Bugs
 
 -
 
