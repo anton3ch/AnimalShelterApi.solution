@@ -66,17 +66,17 @@ Animal Shelter lets users create an API.
   <pre>
    ~/Desktop/AnimalShelterApi.Solution/AnimalShelterApi $ dotnet run
   </pre>
-- Access you API by following this link: [http://localhost:5004/api/animals](http://localhost:5004/api/animals) to try this application
+- Access you API by following this link: [https://localhost:5001/api/v1/Animals](https://localhost:5001/api/v1/Animals) to try this application
 
 ## Endpoints
 
-| Endpoints                | Returns                        |
-| ------------------------ | ------------------------------ |
-| api/animals              | All animals                    |
-| api/animals/1            | An animal with id = 1          |
-| api/animals?breed=sphinx | Animals filtered by breed      |
-| api/animals?name=zoe     | Animals filtered by name       |
-| api/animals?minimumAge=5 | Animals filtered by age        |
+| Endpoints                          | Returns                        |
+| ---------------------------------- | ------------------------------ |
+| api/v{version}/animals              | All animals                    |
+| api/v{version}/animals/1            | An animal with id = 1          |
+| api/v{version}/animals?breed=sphinx | Animals filtered by breed      |
+| api/v{version}/animals?name=zoe     | Animals filtered by name       |
+| api/v{version}/animals?minimumAge=5 | Animals filtered by age        |
 
 ## Versioning
 
